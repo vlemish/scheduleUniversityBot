@@ -7,11 +7,11 @@ namespace scheduleUniversityBot.Models
 {
     public abstract class AppSettings
     {
-        public static string Url { get; set; } = "https://scheduleuniversitybot.azurewebsites.net:443/{0}";
+        public static string Url { get; set; } = "your host url"
 
-        public static string Name { get; set; } = "scheduleUniversityBot";
+        public static string Name { get; set; } = "your bot name";
 
-        public static string Key { get; set; } = "825359183:AAHo6llTff5xCKR_HfkFzlaiZfIa9EnwZtw";
+        public static string Key { get; set; } = "your bot API key";
 
     }
 }

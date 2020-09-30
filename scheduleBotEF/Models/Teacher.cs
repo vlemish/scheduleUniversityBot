@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ScheduleTelegramBotDb.Models
+namespace scheduleDbLayer.Models
 {
     class Teacher
     {
@@ -10,8 +10,9 @@ namespace ScheduleTelegramBotDb.Models
 
         public string TeacherName { get; set; }
 
-        public ICollection<GroupSubjects> GroupSubjects { get; set; }
 
-        public ICollection<TeacherSubjects> TeacherSubjects { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
+
+        public ICollection<Subject> Subjects { get; set; }
     }
 }

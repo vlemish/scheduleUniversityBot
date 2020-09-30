@@ -1,9 +1,8 @@
-﻿using ScheduleTelegramBotDb.EF;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ScheduleTelegramBotDb.Models
+namespace scheduleDbLayer.Models
 {
     class Group
     {
@@ -11,10 +10,17 @@ namespace ScheduleTelegramBotDb.Models
 
         public string GroupName { get; set; }
         
+        //FK_FacultyToGroup
+        public int FacultyId { get; set; }
+
+
+        public Faculty Faculties { get; set; }
+
         public ICollection<Student> Students { get; set; }
 
-        public ICollection<GroupSubjects> GroupSubjects { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
 
-        public ICollection<TeacherSubjects> TeacherSubjects { get; set; }
+        public ICollection<Subject> Subjects { get; set; }
+
     }
 }

@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Models
 {
-    class GroupSubjects
+    class SubjectTeachers
     {
         [Key, Column(Order = 1)]
-        public int GroupId { get; set; }
-
-        [Key, Column(Order = 2)]
         public int SubjectId { get; set; }
 
-        public Group Group  { get; set; }
+        [Key, Column(Order = 2)]
+        public int TeacherId { get; set; }
 
         public Subject Subject { get; set; }
+
+        public Teacher Teacher { get; set; }
     }
 }

@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Models
 {
-    class Faculty
+    public class Faculty
     {
         public int Id { get; set; }
 
         public string FacultyName { get; set; }
+
+        public Faculty(string facultyName)
+        {
+            FacultyName = facultyName;
+        }
+
+        public Faculty()
+        {
+
+        }
 
         public ICollection<Student> Students { get; set; }
 

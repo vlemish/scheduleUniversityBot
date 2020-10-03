@@ -4,12 +4,21 @@ using System.Text;
 
 namespace scheduleDbLayer.Models
 {
-    class Teacher
+    public class Teacher
     {
         public int Id { get; set; }
 
         public string TeacherName { get; set; }
 
+        public Teacher(string teacherName)
+        {
+            TeacherName = teacherName;
+        }
+
+        public Teacher()
+        {
+
+        }
 
         public ICollection<Lesson> Lessons { get; set; }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Models
 {
-    class GroupSubjects
+    public class GroupSubjects
     {
         [Key, Column(Order = 1)]
         public int GroupId { get; set; }

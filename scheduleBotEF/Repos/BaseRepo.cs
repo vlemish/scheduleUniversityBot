@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Repos
 {
-    class BaseRepo<T> : IDisposable, IRepo<T> where T: class
+    public class BaseRepo<T> : IDisposable, IRepo<T> where T: class
     {
         private readonly DbSet<T> _table;
         private readonly ScheduleEntities _db;

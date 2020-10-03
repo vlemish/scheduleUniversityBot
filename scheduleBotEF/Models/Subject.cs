@@ -5,13 +5,21 @@ using System.Text;
 
 namespace scheduleDbLayer.Models
 {
-    class Subject
+    public class Subject
     {
         public int Id { get; set; }
 
         public string SubjectName { get; set; }
 
+        public Subject(string subjectName)
+        {
+            SubjectName = subjectName;
+        }
 
+        public Subject()
+        {
+                
+        }
 
         public ICollection<Teacher> Teachers { get; set; }
 

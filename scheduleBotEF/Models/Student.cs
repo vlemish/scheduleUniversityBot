@@ -4,7 +4,7 @@ using System.Text;
 
 namespace scheduleDbLayer.Models
 {
-    class Student
+    public class Student
     {
         public int Id { get; set; }
 
@@ -14,7 +14,19 @@ namespace scheduleDbLayer.Models
 
         public string UserName { get; set; }
 
-    
+        public Student(string firstName, string lastName, string username)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            UserName = username;
+        }
+
+        public Student()
+        {
+
+        }
+
+
         //FK_FacultyToStudent
         public int FacultyId { get; set; }
         public Faculty Faculties { get; set; }
@@ -22,5 +34,6 @@ namespace scheduleDbLayer.Models
         //FK_GroupToStudent
         public int GroupId { get; set; }
         public Group Groups { get; set; }
+
     }
 }

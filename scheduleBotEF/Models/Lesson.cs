@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Models
 {
-    class Lesson
+    public class Lesson
     {
         public int Id { get; set; }
 

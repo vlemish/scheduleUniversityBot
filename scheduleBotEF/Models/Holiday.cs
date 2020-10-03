@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Models
 {
-    class Holiday
+    public class Holiday
     {
         public int Id { get; set; }
 

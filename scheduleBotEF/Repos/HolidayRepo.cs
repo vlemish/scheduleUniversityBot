@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Repos
 {
-    class HolidayRepo
+    public class HolidayRepo
     {
     }
 }

@@ -28,31 +28,31 @@ namespace scheduleDbLayer.Repos
             _db?.Dispose();
         }
 
-        public int Add(T entity)
+        public virtual int Add(T entity)
         {
             _table.Add(entity);
             return SaveChanges();
         }
 
-        public int AddRange(IList<T> entities)
+        public virtual int AddRange(IList<T> entities)
         {
             _table.AddRange(entities);
             return SaveChanges();
         }
 
-        public int Delete(T entity)
+        public virtual int Delete(T entity)
         {
             _db.Entry(entity).State = EntityState.Deleted;
             return SaveChanges();
         }
 
-        public List<T> ExecuteQuery(string sql) => _table.SqlQuery(sql).ToList();
+        public virtual List<T> ExecuteQuery(string sql) => _table.SqlQuery(sql).ToList();
 
-        public List<T> ExecuteQuery(string sql, object[] sqlParametersObjects) => _table.SqlQuery(sql, sqlParametersObjects).ToList();
+        public virtual List<T> ExecuteQuery(string sql, object[] sqlParametersObjects) => _table.SqlQuery(sql, sqlParametersObjects).ToList();
 
         public virtual List<T> GetAll() => _table.ToList();
 
-        public T GetOne(int? d) => _table.Find(d);
+        public virtual T GetOne(int? key) => _table.Find(key);
 
         public int Save(T entity)
         {

@@ -10,6 +10,18 @@ namespace scheduleDbLayer.Models
 {
     public class GroupSubjects
     {
+        public GroupSubjects(int groupId, int subejctId)
+        {
+            GroupId = groupId;
+            SubjectId = subejctId;
+        }
+
+        public GroupSubjects()
+        {
+
+        }
+
+
         [Key, Column(Order = 1)]
         public int GroupId { get; set; }
 

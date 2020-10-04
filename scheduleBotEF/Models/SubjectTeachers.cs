@@ -10,6 +10,18 @@ namespace scheduleDbLayer.Models
 {
     public class SubjectTeachers
     {
+        public SubjectTeachers(int teacherId, int subjectId)
+        {
+            TeacherId = teacherId;
+            SubjectId = subjectId;
+        }
+
+        public SubjectTeachers()
+        {
+
+        }
+
+
         [Key, Column(Order = 1)]
         public int SubjectId { get; set; }
 

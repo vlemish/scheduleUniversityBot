@@ -6,11 +6,11 @@ using scheduleDbLayer.Models;
 
 namespace scheduleDbLayer.EF
 {
-    class ScheduleEntities : DbContext
+    public class ScheduleEntities : DbContext
     {
 
         public ScheduleEntities()
-            : base("Local")
+            : base("Azure")
         {
 
         }
@@ -28,6 +28,10 @@ namespace scheduleDbLayer.EF
         public DbSet<Lesson> Lessons { get; set; }
 
         public DbSet<Holiday> Holidays { get; set; }
+
+        public DbSet<SubjectTeachers> SubjectTeachers { get; set; }
+
+        public DbSet<GroupSubjects> GroupSubjects { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

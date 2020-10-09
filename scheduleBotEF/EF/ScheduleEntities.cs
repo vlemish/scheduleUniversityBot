@@ -57,33 +57,65 @@ namespace scheduleDbLayer.EF
                 .HasRequired<Group>(l => l.Groups)
                 .WithMany(g => g.Lessons)
                 .HasForeignKey(l => l.GroupId).WillCascadeOnDelete(false);
-            //FK_TeacherToLesson
+            ////FK_TeacherToLesson
             modelBuilder.Entity<Lesson>()
                 .HasRequired<Teacher>(l => l.Teachers)
                 .WithMany(t => t.Lessons)
                 .HasForeignKey(l => l.TeacherId).WillCascadeOnDelete(false);
+            //FK_TeacherTosLessons
+            modelBuilder.Entity<Lesson>()
+                .HasRequired<Subject>(l => l.Subjects)
+                .WithMany(s => s.Lessons)
+                .HasForeignKey(l => l.SubjectId).WillCascadeOnDelete(false);
 
             //MANY-TO-MANY
             //SubjectsTeachers
+            //modelBuilder.Entity<Subject>()
+            //    .HasMany(s => s.Teachers)
+            //    .WithMany(t => t.Subjects)
+            //    .Map(cs =>
+            //    {
+            //        cs.MapLeftKey("SubjectId");
+            //        cs.MapRightKey("TeacherId");
+            //        cs.ToTable("SubjectTeachers");
+            //    });
+
+            modelBuilder.Entity<SubjectTeachers>()
+                .HasKey(st => new { st.SubjectId, st.TeacherId });
+
             modelBuilder.Entity<Subject>()
-                .HasMany(s => s.Teachers)
-                .WithMany(t => t.Subjects)
-                .Map(cs =>
-                {
-                    cs.MapLeftKey("SubjectId");
-                    cs.MapRightKey("TeacherId");
-                    cs.ToTable("SubjectTeachers");
-                });
+                .HasMany(s => s.SubjectTeachers)
+                .WithRequired()
+                .HasForeignKey(s => s.SubjectId);
+
+            modelBuilder.Entity<Teacher>()
+                .HasMany(t => t.SubjectTeachers)
+                .WithRequired()
+                .HasForeignKey(t => t.TeacherId);
+
             //GroupsSubjects
+            //modelBuilder.Entity<Group>()
+            //    .HasMany(g => g.Subjects)
+            //    .WithMany(s => s.Groups)
+            //    .Map(cs =>
+            //    {
+            //        cs.MapLeftKey("GroupId");
+            //        cs.MapRightKey("SubjectId");
+            //        cs.ToTable("GroupSubjects");
+            //    });
+
+            modelBuilder.Entity<GroupSubjects>()
+                .HasKey(gs => new { gs.GroupId, gs.SubjectId });
+
             modelBuilder.Entity<Group>()
-                .HasMany(g => g.Subjects)
-                .WithMany(s => s.Groups)
-                .Map(cs =>
-                {
-                    cs.MapLeftKey("GroupId");
-                    cs.MapRightKey("SubjectId");
-                    cs.ToTable("GroupSubjects");
-                });
+                .HasMany(g => g.GroupSubjects)
+                .WithRequired()
+                .HasForeignKey(g => g.GroupId);
+
+            modelBuilder.Entity<Subject>()
+                .HasMany(s => s.GroupSubjects)
+                .WithRequired()
+                .HasForeignKey(s => s.SubjectId);
 
         }
     }

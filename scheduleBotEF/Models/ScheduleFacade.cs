@@ -1,0 +1,46 @@
+﻿using scheduleDbLayer.Repos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace scheduleDbLayer.Models
+{
+    public class ScheduleFacade
+    {
+        public string Username { get; set; }
+
+        public string LastName { get; set; }
+
+        public string FirstName { get; set; }
+
+        public ScheduleFacade(string username, string lastname, string firstname)
+        {
+            Username = username;
+            LastName = lastname;
+            FirstName = firstname;
+        }
+
+        public ScheduleFacade()
+        {
+
+        }
+
+        public string GetSchedule(int evenOrOdd, DayOfWeek dayOfWeek)
+        {
+            var student = new StudentRepo().GetOne(Username, LastName, FirstName);
+
+            if (student == null)
+            {
+                throw new Exception("Unknown user!");               
+            }
+
+            var lessonRepo = new LessonRepo();
+
+            var lesson =  lessonRepo.GetDailySchedule(evenOrOdd, student.GroupId, dayOfWeek);
+
+            return $"Time:{lesson.LessonTime}, Subject:{lesson.Subjects.SubjectName}, Teacher: {lesson.Teachers.TeacherName}";
+        }
+    }
+}

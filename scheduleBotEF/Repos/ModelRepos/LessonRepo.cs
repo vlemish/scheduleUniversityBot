@@ -9,8 +9,8 @@ namespace scheduleDbLayer.Repos
 {
     public class LessonRepo : BaseRepo<Lesson>
     {
-        public Lesson GetDailySchedule(int evenOrOdd, int groupId, DayOfWeek dayOfWeek) => Context.Lessons.
+        public List<Lesson> GetDailySchedule(int evenOrOdd, int groupId, DayOfWeek dayOfWeek) => Context.Lessons.
             Where(l => l.EvenOrOdd == evenOrOdd && l.GroupId == groupId && l.DayOfWeek == dayOfWeek).
-            Select(l=>l).FirstOrDefault();
+            Select(l=>l).ToList();
     }
 }

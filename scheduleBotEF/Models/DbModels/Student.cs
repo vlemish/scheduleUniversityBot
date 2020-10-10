@@ -14,11 +14,13 @@ namespace scheduleDbLayer.Models
 
         public string UserName { get; set; }
 
-        public Student(string firstName, string lastName, string username)
+        public Student(string firstName, string lastName, string username, int facultyId, int groupId)
         {
             FirstName = firstName;
             LastName = lastName;
             UserName = username;
+            FacultyId = facultyId;
+            GroupId = groupId;
         }
 
         public Student()

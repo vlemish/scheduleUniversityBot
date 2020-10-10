@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.Entity;
 using scheduleDbLayer.Models;
+using scheduleDbLayer.Models.DbModels;
 
 namespace scheduleDbLayer.EF
 {

@@ -39,7 +39,7 @@ namespace scheduleDbLayer.Models
             var lessonRepo = new LessonRepo();
 
             var lesson = string.Join("\n",lessonRepo.GetDailySchedule(evenOrOdd, student.GroupId, dayOfWeek)
-                .Select(l=> $"{l.LessonTime}\n{l.Subjects.SubjectName}\n{l.Teachers.TeacherName}"));
+                .Select(l=> $"{l.LessonTime}\n{l.Subjects.SubjectName}\n{l.Teachers.TeacherName}\n{l.LessonType}"));
 
             return lesson;
         }

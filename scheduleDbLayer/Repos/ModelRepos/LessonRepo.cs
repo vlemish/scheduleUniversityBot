@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Repos
 {
@@ -11,6 +9,10 @@ namespace scheduleDbLayer.Repos
     {
         public List<Lesson> GetDailySchedule(int evenOrOdd, int groupId, DayOfWeek dayOfWeek) => Context.Lessons.
             Where(l => l.EvenOrOdd == evenOrOdd && l.GroupId == groupId && l.DayOfWeek == dayOfWeek).
-            Select(l=>l).ToList();
+            Select(l => l).ToList();
+
+        public List<Lesson> GetAllLessons(int subjectId) => Context.Lessons
+            .Where(l => l.SubjectId.Equals(subjectId))
+            .Select(l => l).ToList();
     }
 }

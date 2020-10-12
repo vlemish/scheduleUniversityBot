@@ -1,9 +1,6 @@
 ﻿using scheduleDbLayer.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace scheduleDbLayer.Repos
 {
@@ -22,7 +19,7 @@ namespace scheduleDbLayer.Repos
 
             if (isUserName)
             {
-                return Context.Students.Where(s => s.UserName.Equals(userName)).Select(s=>s).FirstOrDefault();
+                return Context.Students.Where(s => s.UserName.Equals(userName)).Select(s => s).FirstOrDefault();
             }
 
             else if (isLastName)

@@ -9,7 +9,7 @@ namespace scheduleDbLayer.Models
 {
     public class Lesson
     {
-        public Lesson(TimeSpan lessonTime, int evenOrOdd, int groupId, int teacherId, int subjectId, DayOfWeek dayOfWeek)
+        public Lesson(TimeSpan lessonTime, int evenOrOdd, int groupId, int teacherId, int subjectId, DayOfWeek dayOfWeek, LessonType lessonType)
         {
             LessonTime = lessonTime;
             EvenOrOdd = evenOrOdd;
@@ -17,6 +17,7 @@ namespace scheduleDbLayer.Models
             TeacherId = teacherId;
             DayOfWeek = dayOfWeek;
             SubjectId = subjectId;
+            LessonType = lessonType;
         }
 
         public Lesson()

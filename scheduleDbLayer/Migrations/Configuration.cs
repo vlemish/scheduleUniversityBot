@@ -1,6 +1,7 @@
 ﻿namespace scheduleDbLayer.Migrations
 {
     using scheduleDbLayer.Models;
+    using scheduleDbLayer.Models.DbModels;
     using scheduleDbLayer.Repos;
     using System;
     using System.Collections.Generic;
@@ -34,7 +35,8 @@
 
             //var teachersRepo = new TeacherRepo();
             //teachersRepo.AddRange(teachers);
-            //context.Teachers.AddOrUpdate(x => new { x.TeacherName });
+            //teachers.ForEach(x => context.Teachers.AddOrUpdate(
+            //    t => new { t.TeacherName}, x));
 
             ////Faculties
             //BaseRepo<Faculty> _repoFaculty = new BaseRepo<Faculty>();
@@ -109,44 +111,46 @@
             //{
             //    //MONDAY
             //    //EVEN
-            //    new Lesson(TimeSpan.Parse("10:30"),2,1,1,2,DayOfWeek.Monday),
-            //    new Lesson(TimeSpan.Parse("12:30"),2,1,5,3,DayOfWeek.Monday),
-            //    new Lesson(TimeSpan.Parse("14:15"),2,1,2,4,DayOfWeek.Monday),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,1,2,DayOfWeek.Monday, LessonType.Lecture),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),2,1,5,3,DayOfWeek.Monday, LessonType.Lecture),
+            //    new Lesson(TimeSpan.Parse(LessonTime.FourthLesson.Value),2,1,2,4,DayOfWeek.Monday, LessonType.Practice),
 
             //    //ODD
-            //    new Lesson(TimeSpan.Parse("8:45"),2,1,1,1,DayOfWeek.Monday),
-            //    new Lesson(TimeSpan.Parse("10:30"),2,1,1,1,DayOfWeek.Monday),
+            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),1,1,1,1,DayOfWeek.Monday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),1,1,1,1,DayOfWeek.Monday, LessonType.Lecture),
 
             //    //Tuesday
             //    //EVEN
-            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,3,5,DayOfWeek.Tuesday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),2,1,3,5,DayOfWeek.Tuesday),
-
+            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),2,1,1,2,DayOfWeek.Tuesday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,2,4,DayOfWeek.Tuesday, LessonType.Lecture),
+               
             //    //ODD
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),1,1,1,2,DayOfWeek.Tuesday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),1,1,2,4,DayOfWeek.Tuesday),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),1,1,3,5,DayOfWeek.Tuesday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),1,1,3,5,DayOfWeek.Tuesday, LessonType.Lecture),
 
             //    //Wednesday
             //    //EVEN
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),2,1,4,6,DayOfWeek.Wednesday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,4,7,DayOfWeek.Wednesday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),2,1,4,8,DayOfWeek.Wednesday),
+            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),2,1,4,6,DayOfWeek.Wednesday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,4,7,DayOfWeek.Wednesday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),2,1,4,8,DayOfWeek.Wednesday, LessonType.Lecture),
 
             //    //ODD
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),1,1,4,7,DayOfWeek.Wednesday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),1,1,4,6,DayOfWeek.Wednesday),
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),1,1,4,7,DayOfWeek.Wednesday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),1,1,4,6,DayOfWeek.Wednesday, LessonType.Lecture),
 
             //    //TUESDAY
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),0,1,6,9,DayOfWeek.Thursday),
-            //    new Lesson(TimeSpan.Parse(LessonTime.FirstLesson.Value),0,1,5,3,DayOfWeek.Thursday),
+            //    //ODD
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),1,1,6,9,DayOfWeek.Thursday, LessonType.Lecture),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),1,1,5,3,DayOfWeek.Thursday, LessonType.Practice),
+                
+            //    //EVEN
+            //    new Lesson(TimeSpan.Parse(LessonTime.SecondLesson.Value),2,1,6,9,DayOfWeek.Thursday, LessonType.Practice),
+            //    new Lesson(TimeSpan.Parse(LessonTime.ThirdLesson.Value),2,1,5,3,DayOfWeek.Thursday, LessonType.Practice),
             //};
 
             //var lessonsRepo = new LessonRepo();
 
             //lessonsRepo.AddRange(lessons);
-
-
-
         }
     }
 }

@@ -43,7 +43,9 @@ namespace scheduleBot.Controllers
                     }
                 }
 
-                await botClient.SendTextMessageAsync(message.Chat.Id, $"{message.Text} isn't supported command {char.ConvertFromUtf32(0x1F643)}");
+                await botClient.SendTextMessageAsync(message.Chat.Id, $"{message.Text} isn't supported command {char.ConvertFromUtf32(0x1F643)}\n" +
+                    $"If you have ideas of features that would be good to add, feel free to write to me: <a>vlad.lemish123@gmail.com</a>"
+                    ,Telegram.Bot.Types.Enums.ParseMode.Html);
                 return Ok();
             }
 

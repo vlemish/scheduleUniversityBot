@@ -10,9 +10,6 @@ namespace telegramBotASP.Models.Buttons
 {
     public class GroupsButtons : Button
     {
-        public override string Name => throw new NotImplementedException(); // There is a problem. Names and data contained in Db
-
-        public override string Data => throw new NotImplementedException(); // the same
 
         private GroupRepo _groupsRepo = new GroupRepo();
 

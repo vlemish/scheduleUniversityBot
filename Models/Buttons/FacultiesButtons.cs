@@ -11,9 +11,6 @@ namespace telegramBotASP.Models.Buttons
 {
     public class FacultiesButton : Button
     {
-        public override string Name => throw new NotImplementedException(); // There is a problem. Names and data contained in Db
-
-        public override string Data => throw new NotImplementedException(); // the same
 
         private BaseRepo<Faculty> _facultiesRepo = new BaseRepo<Faculty>();
 

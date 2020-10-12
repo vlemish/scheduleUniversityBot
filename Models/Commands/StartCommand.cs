@@ -3,6 +3,7 @@ using System.Linq;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
+using telegramBotASP.Models;
 
 namespace scheduleBot.Models.Commands
 {
@@ -30,26 +31,24 @@ namespace scheduleBot.Models.Commands
 
             else
             {
+                var faculties = new FacultyRepo().GetAll().Select(f=> f.FacultyName).ToList();
 
-                var faculties = new FacultyRepo().GetAll();
+                var builder = InlineKeyboardBuilder.Create();
 
-                var inlineKeyboard = new InlineKeyboardMarkup(new[]
+                builder.AddRow();
+
+                foreach (var faculty in faculties)
+                {
+                    if (faculties.IndexOf(faculty) % 3 == 0)
                     {
-                    faculties.Select(f=> InlineKeyboardButton.WithCallbackData($"{f.FacultyName}",$"{f.FacultyName}"))
-                });
+                        builder.EndRow();
+                        builder.AddRow();
+                    }
 
-                //var inlineKeyboard = new InlineKeyboardMarkup(new[]
-                //    {
-                //        // first row
-                //        new []
-                //        {
-                //            InlineKeyboardButton.WithCallbackData("Mechanical","1"),
-                //            InlineKeyboardButton.WithCallbackData("Automobile","2"),
-                //        },
-                //    });
+                    builder.AddButton(faculty, faculty);
+                }
 
-
-                botClient.SendTextMessageAsync(chatId, $"Hello, friend {char.ConvertFromUtf32(0x1F603)}! Choose your faculty:", replyMarkup: inlineKeyboard);
+                botClient.SendTextMessageAsync(chatId, $"Hello, friend {char.ConvertFromUtf32(0x1F603)}! Choose your faculty:", replyMarkup: builder.Build());
             }
 
 

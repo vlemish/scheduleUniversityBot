@@ -14,7 +14,7 @@ namespace telegramBotASP.Models.Buttons
 
         private BaseRepo<Faculty> _facultiesRepo = new BaseRepo<Faculty>();
 
-        private int facultyId; // to store chose faculty
+        private int facultyId; // for storing chosen faculty
 
         public override bool Contains(Update message)
         {
@@ -32,19 +32,25 @@ namespace telegramBotASP.Models.Buttons
         public override void Execute(CallbackQuery query, TelegramBotClient botClient)
         {
 
-            var groups = new GroupRepo().GetAll(facultyId); // to get groups from specific faculty
-
-
-            var inlineKeyboard = new InlineKeyboardMarkup(new[]
-                {
-                    groups.Select(g=> InlineKeyboardButton.WithCallbackData($"{g.GroupName}",$"{g.GroupName}"))
-
-                });
-
-
+            var groups = new GroupRepo().GetAll(facultyId).Select(g=> g.GroupName).ToList(); // to get groups from specific faculty
             var chatId = query.Message.Chat.Id;
 
-            botClient.SendTextMessageAsync(chatId, "<Ok, choose the group you're studying in>\t", replyMarkup: inlineKeyboard);
+            var builder = InlineKeyboardBuilder.Create();
+
+            builder.AddRow();
+
+            foreach (var group in groups)
+            {
+                if (groups.IndexOf(group) % 3 == 0)
+                {
+                    builder.EndRow();
+                    builder.AddRow();
+                }
+
+                builder.AddButton(group, group);
+            }
+
+            botClient.SendTextMessageAsync(chatId, "<Ok, choose the group you're studying in>\t", replyMarkup: builder.Build());
 
             botClient.AnswerCallbackQueryAsync(query.Id, "Ok");
 

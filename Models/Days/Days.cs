@@ -7,87 +7,18 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
         public Monday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
 
-        protected override string GetEvenSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Monday);
+        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Monday);
 
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Monday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-
-        }
-
-        protected override string GetOddSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Monday);
-
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Monday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
+        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Monday);
     }
 
     public class Tuesday : WorkingDay
     {
         public Tuesday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetEvenSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Tuesday);
+        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Tuesday);
 
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Tuesday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
-
-        protected override string GetOddSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Tuesday);
-
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Tuesday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
+        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Tuesday);
     }
 
 
@@ -97,44 +28,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
 
         public Wendnesday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetEvenSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Wednesday);
+        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Wednesday);
 
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Wednesday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-
-        }
-
-        protected override string GetOddSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Wednesday);
-
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Wednesday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
+        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Wednesday);
     }
 
 
@@ -142,43 +38,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
     {
         public Thursday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetOddSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Thursday);
+        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Thursday);
 
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Thursday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
-
-        protected override string GetEvenSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Thursday);
-
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Thursday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
+        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Thursday);
     }
 
 
@@ -186,45 +48,12 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
     {
         public Friday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetOddSchedule()
-        {
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Thursday);
+        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Friday);
 
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Thursday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-
-        }
-        protected override string GetEvenSchedule()
-        {
-
-            var _schedule = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Friday);
-
-            if (_schedule == "")
-            {
-                var scheduleGeneric = new ScheduleFacade(Username, LastName, FirstName).GetSchedule(0, DayOfWeek.Friday);
-
-                if (scheduleGeneric != "")
-                {
-                    return scheduleGeneric;
-                }
-
-                else return "Day off";
-            }
-
-            return _schedule;
-        }
+        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Friday);
     }
+
+
     public class Weekend : WorkingDay
     {
         public Weekend(bool even, string username, string lastname, string firstname)

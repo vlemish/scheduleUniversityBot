@@ -14,6 +14,13 @@
 <div>
     <h2>Functionality</h2>
     <p>The bot has 6 commands</p>
+    <p><b>/start</b> command -  is the command that will be executed first. The command returns the list of faculties, and the student has to choose his faculty.</p>
+    <p><b>/remove</b> command - is the command that simply removes the user from DB.</p>
+    <p><b>/schedule</b> command - is the command that returns today's schedule.</p>
+    <p><b>/tomorrow</b> command - is the command that returns tomorrow's schedule.</p>
+    <p><b>/week</b> command - is the command that returns a weekly schedule.</p>
+    <p><b>/subjects</b> command - is the command that returns the list of subjects in button forms, so the user can click the button and get the information about the subject.
+        The whole workflow is shown <a href="#workflow">below</a></p>
     <ul>
     <li><p><b>/start</b> command -  is the command that will be executed first. The command returns the list of faculties, and the student has to choose his faculty.</p></li>
     <li><p><b>/remove</b> command - is the command that simply removes the user from DB.</p></li>

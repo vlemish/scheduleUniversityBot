@@ -38,12 +38,14 @@ namespace scheduleUniversityBot_net.Models.Commands
 
             else
             {
-                List<DayOfWeek> list = new List<DayOfWeek>();
-                list.Add(DayOfWeek.Monday);
-                list.Add(DayOfWeek.Tuesday);
-                list.Add(DayOfWeek.Wednesday);
-                list.Add(DayOfWeek.Thursday);
-                list.Add(DayOfWeek.Friday);
+                List<DayOfWeek> list = new List<DayOfWeek>()
+                {
+                    DayOfWeek.Monday,
+                    DayOfWeek.Tuesday,
+                    DayOfWeek.Wednesday,
+                    DayOfWeek.Thursday,
+                    DayOfWeek.Friday,
+                };
 
                 for (int i = 0; i < list.Count; i++)
                 {

@@ -29,17 +29,17 @@
 <div id="workflow">
 <h2>Workflow</h2>
 <h3>Register Workflow</h3>
-<p>To start working with bot user should call <b>/start</b> command, then the user will have to choose the faculty and the group he is studing in.</p>
-<p>This command will add a new user to DB with selected group, faculty and telegram's first name, last name and username. Further this data is used to identify whether the user is registrated and if yes - correct schedule will be returned.</p>
+<p>To start working with the bot user should call <b>/start</b> command, then the user will have to choose the faculty and the group he is studing in.</p>
+<p>This command will add a new user to DB with selected group, faculty and telegram's first name, last name and username. Further, this data is used to identify whether the user is registered and if yes - the correct schedule will be returned.</p>
 <img src="https://github.com/vlemish/scheduleUniversityBot/blob/master/imgs/RegisterWorkflow.gif" alt="register">
 <h3>Getting schedule commands</h3>
-<p>As was written <a href="#functionality">above</a> there are three ways to get the schedule. You can get today's, tomorrow's or weekly schedule.</p>
+<p>As was written <a href="#functionality">above</a> there are three ways to get the schedule. You can get today's, tomorrow's, or weekly schedule.</p>
 <img src="https://github.com/vlemish/scheduleUniversityBot/blob/master/imgs/GetSchedule.gif" alt="get schedule">
 <h3>Subjects command</h3>
-<p>Also you can get information about the subjects. To do so, you should call <b>/subjects</b> command, after this you'll have the list of avaliable subjects which are returned in a buttons form, so you can click on a button and get information about the subject.</p>
+<p>Also you can get the information about the subjects. To do so, you should call <b>/subjects</b> command, after this you'll have the list of avaliable subjects which are returned in the form of a button, so you can click on a button and get information about the subject.</p>
 <img src="https://github.com/vlemish/scheduleUniversityBot/blob/master/imgs/SubjectsCommand.gif" alt="subjects">
 <h3>Remove command</h3>
-<p>You can remove yourself from Db, to do so you can call <b>/remove</b> command. That also can be usefull if you made in choosing the faculty or the group in registrating.</p>
+<p>You can remove yourself from Db, to do so you can call <b>/remove</b> command. That also can be usefull if you made a mistake in choosing the faculty or the group in registration.</p>
 <img src="https://github.com/vlemish/scheduleUniversityBot/blob/master/imgs/RemoveCommand.gif" alt="remove">
 <h3>Wrong command</h3>
 <p>If the command isn't known to the bot, bot will send a message, that the command is unknown.</p>

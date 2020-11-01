@@ -74,10 +74,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
 
             }
         }
-        public static WorkingDay GetDay(DateTime dt, DayOfWeek dayOfWeak, int i, string username, string lastname, string firstname)
+        public static WorkingDay GetDay(DateTime dt, int includeWeekend, DayOfWeek dayOfWeak, int i, string username, string lastname, string firstname)
         {
-
-            int day = Math.Abs(12 - (dt.Day + i));
+            int day = Math.Abs(12 - (dt.Day + i)) + includeWeekend;
             bool isEven = day % 2 == 0;
             string msg = "";
 
@@ -97,7 +96,7 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
                     }
                 case DayOfWeek.Thursday:
                     {
-                        return new Thursday(isEven, username, lastname, firstname); ;
+                        return new Thursday(isEven, username, lastname, firstname);
                     }
                 case DayOfWeek.Friday:
                     {
@@ -105,7 +104,7 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
                     }
                 default:
                     {
-                        return new Weekend(isEven, username, lastname, firstname); ;
+                        return new Weekend(isEven, username, lastname, firstname);
                     }
             }
         }

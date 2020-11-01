@@ -34,12 +34,13 @@ namespace scheduleBot.Models
             commandsList.Add(new TodayCommand());
             commandsList.Add(new TommorowCommand());
             commandsList.Add(new WeekCoomand());
-            //commandsList.Add(new SubjectCommand());
+            commandsList.Add(new SubjectsCommand());
             //TODO: Add more commands
 
             buttonsList = new List<Button>();
             buttonsList.Add(new FacultiesButton());
             buttonsList.Add(new GroupsButtons());
+            buttonsList.Add(new SubjectsButton());
             //TODO: Add more buttons
 
             botClient = new TelegramBotClient(AppSettings.Key);
@@ -47,11 +48,5 @@ namespace scheduleBot.Models
             botClient.SetWebhookAsync(hook);
             return botClient;
         }
-
-//        /start - Start working with bot
-//        /schedule - Returns today schedule
-//        /tomorrow - Returns tomorrow schedule
-//        /week - Returns weekly schedule
-//        /remove - Removes you from bot's memory(Can be used to re-register).
     }
 }

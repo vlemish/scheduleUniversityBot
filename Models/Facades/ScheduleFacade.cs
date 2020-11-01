@@ -1,11 +1,8 @@
 ﻿using scheduleDbLayer.Repos;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace scheduleDbLayer.Models
+namespace telegramBotASP.Models.Facades
 {
     public class ScheduleFacade
     {
@@ -33,13 +30,13 @@ namespace scheduleDbLayer.Models
 
             if (student == null)
             {
-                throw new Exception("Unknown user!");               
+                throw new Exception("Unknown user!");
             }
 
             var lessonRepo = new LessonRepo();
 
-            var lesson = string.Join("\n",lessonRepo.GetDailySchedule(evenOrOdd, student.GroupId, dayOfWeek)
-                .Select(l=> $"{l.LessonTime}\n{l.Subjects.SubjectName}\n{l.Teachers.TeacherName}\n{l.LessonType}"));
+            var lesson = string.Join("\n", lessonRepo.GetDailySchedule(evenOrOdd, student.GroupId, dayOfWeek)
+                .Select(l => $"{l.LessonTime}\n{l.Subjects.SubjectName}\n{l.Teachers.TeacherName}\n{l.LessonType}"));
 
             if (lesson.Equals("") || lesson.Equals(null))
             {

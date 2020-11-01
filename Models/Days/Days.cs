@@ -1,5 +1,6 @@
-﻿using scheduleDbLayer.Models;
-using System;
+﻿using System;
+using telegramBotASP.Models.Facades;
+
 namespace scheduleUniversityBot_net.Models.Commands.Days
 {
     public class Monday : WorkingDay
@@ -7,18 +8,18 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
         public Monday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
 
-        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Monday);
+        protected override string GetEvenSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Monday);
 
-        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Monday);
+        protected override string GetOddSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Monday);
     }
 
     public class Tuesday : WorkingDay
     {
         public Tuesday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Tuesday);
+        protected override string GetEvenSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Tuesday);
 
-        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Tuesday);
+        protected override string GetOddSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Tuesday);
     }
 
 
@@ -28,9 +29,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
 
         public Wendnesday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Wednesday);
+        protected override string GetEvenSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Wednesday);
 
-        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Wednesday);
+        protected override string GetOddSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Wednesday);
     }
 
 
@@ -38,9 +39,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
     {
         public Thursday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Thursday);
+        protected override string GetOddSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Thursday);
 
-        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Thursday);
+        protected override string GetEvenSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Thursday);
     }
 
 
@@ -48,9 +49,9 @@ namespace scheduleUniversityBot_net.Models.Commands.Days
     {
         public Friday(bool even, string username, string lastname, string firstname)
             : base(even, username, lastname, firstname) { }
-        protected override string GetOddSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Friday);
+        protected override string GetOddSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(1, DayOfWeek.Friday);
 
-        protected override string GetEvenSchedule()=> new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Friday);
+        protected override string GetEvenSchedule() => new ScheduleFacade(Username, LastName, FirstName).GetSchedule(2, DayOfWeek.Friday);
     }
 
 

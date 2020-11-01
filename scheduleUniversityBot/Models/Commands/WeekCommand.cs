@@ -47,9 +47,11 @@ namespace scheduleUniversityBot_net.Models.Commands
                     DayOfWeek.Friday,
                 };
 
+                int includeWeekend = DateTime.Now.DayOfWeek.Equals(DayOfWeek.Saturday) ? 2 : DateTime.Now.DayOfWeek.Equals(DayOfWeek.Sunday) ? 1 : 0;
+
                 for (int i = 0; i < list.Count; i++)
                 {
-                    WorkingDay day = DefineDate.GetDay(DateTime.Now, list[i], i, message.From.Username, message.From.LastName, message.From.FirstName);
+                    WorkingDay day = DefineDate.GetDay(DateTime.Now, includeWeekend, list[i], i, message.From.Username, message.From.LastName, message.From.FirstName);
                     botClient.SendTextMessageAsync(chatId, $"{message.Chat.FirstName}, ваш розклад:\n{list[i]}\n{day.GetSchedule()}");
                     Thread.Sleep(1000);
                 }
